@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 function Welcome(props) {
 
-    const person = props.user.name ? props.user.name : 'guest';
+    const person = props.user.email ? props.user.email : 'guest';
 
     return (
         <section className='welcome'>

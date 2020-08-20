@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import {addUser} from '../../redux/reducers/authReducer';
+import { addUser } from '../../redux/reducers/authReducer';
 
 class Auth extends React.Component {
     constructor(props) {
@@ -22,7 +22,7 @@ class Auth extends React.Component {
             .post('/auth/register', {email, password})
             //match these to what you're getting off the req.body from authController.
             .then(res => {
-                this.addUser(res.data)
+                this.props.addUser(res.data)
             })
             .catch(err => console.log(err))
     }
@@ -40,7 +40,7 @@ class Auth extends React.Component {
         return (
             <section>
                 {
-                    this.props.user.name
+                    this.props.user.email
                     ? <button>logout</button>
                     : <div>
                             <input onChange={this.handleInput} name='email' placeholder='email' />
